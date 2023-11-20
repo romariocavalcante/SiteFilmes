@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes e Séries</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    main {
+        display: flex;
+        gap: 10px;
+        padding: 2%;
+    }
+
+    .card {
+        width: 280px;
+        height: 162px;
+        border-radius: 5px;
+        background-color: red;
+        overflow: hidden;
+        transition: .2s ease-in-out
+    }
+
+    .card:hover {
+        transform: scale(1.1);
+    }
+
+    .card video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card .description {
+        background-color: aquamarine;
+    }
+</style>
+
+
+<body>
+
+    <main>
+
+        <!-- {% for f in filmes %}
+        <div class="card">
+            <video controls>
+                <source src="{{ f.video.url }}" type="video/mp4">
+            </video>
+            <div class="description">
+                <button class="btn-film"></button>
+            </div>
+        </div>
+        {% endfor %} -->
+
+
+
+
+
+        {% for filme in filmes %}
+        <div class="card">
+            <video id="video" width="320" height="240" controls muted>
+                <source src="{{ filme.video.url }}" type="video/mp4">
+            </video>
+        </div>
+        {% endfor %}
+
+    </main>
+
+    <script>
+        window.onload = function () {
+            var videos = document.getElementsByTagName('video');
+            for (var i = 0; i < videos.length; i++) {
+                videos[i].addEventListener('mouseover', function () {
+                    this.currentTime = 600;
+                    this.play();
+
+                    video.muted = false;
+                    setTimeout(function () {
+                        video.volume = 1;
+                        console.log('Com áudio!')
+                    }, 3000);
+                });
+                videos[i].addEventListener('mouseout', function () {
+                    document.getElementById('video').muted = true;
+                    console.log('Sem áudio!')
+                    this.pause();
+                });
+
+            }
+        }
+    </script>
+</body>
+
+</html>

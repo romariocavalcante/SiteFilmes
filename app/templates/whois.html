@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- Title -->
+{% block title %}Escolha do Usuário{% endblock %}
+{%block style%} 
+    <link rel="stylesheet" href="{% static 'css/whois.css' %}">
+{%endblock%}
+{% block content %}
+    <main>
+        <section>
+            <div class="content">
+                <div class="users">
+                    {% for user in usuarios %}
+                        <a href="">
+                            <div class="user">
+                                <img src="{{ user.image.url }}" alt="{{ user.usuario }}">
+                                <div class="nome">
+                                    {{user.usuario}}
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="addUser">
+                    <a href="">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

@@ -1,0 +1,6 @@
+app\__pycache__
+app\migrations\__pycache__
+migrations/*
+!migrations/__init__.py
+meusite\__pycache__
+db.sqlite3

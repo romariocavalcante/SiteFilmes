@@ -14,10 +14,19 @@
                     <input type="text" id="username" name="username" required>
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="message">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
                     <button type="submit">Login</button>
                 </form>
             </div>
         </div>
     </main>
 
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/login.js' %}"></script>
 {% endblock %}

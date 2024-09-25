@@ -22,10 +22,29 @@ def logout(request):
     return redirect('login')
 
 def whois(request, id):
-    user = get_object_or_404(UsersAccount, usuario=id)
+    login_user = get_object_or_404(UsersAccount, login_user=id)
     usuarios = UsersAccount.objects.all()
-    return render(request, "whois.html", {'usuarios':usuarios, 'user':user})
+    return render(request, "whois.html", {'login_user':login_user, 'usuarios':usuarios})
 
 def accountUser(request, user_id):
     usuario = get_object_or_404(UsersAccount, user_id=user_id)
     return render(request, "home.html", {'usuario':usuario})
+
+def create_user(request, id):
+    user = get_object_or_404(UsersAccount, usuario=id)
+    if request.method == 'POST':
+        usuario = request.POST.get('usuario')
+        imagem = request.FILES.get('imagem')
+
+        novo_usuario = UsersAccount(usuario=usuario, imagem=imagem)
+        
+        novo_usuario.save()
+
+        return redirect('whois')
+
+    return render(request, 'create_user.html', {'user':user})
+
+def home(request, id, username):
+    account = get_object_or_404(LoginUsers, usuario=id)
+    user = get_object_or_404(UsersAccount, usuario=username)
+    return render(request, 'home.html', {'account': account, 'user': user})

@@ -10,8 +10,8 @@ class LoginUsers(models.Model):
         return self.usuario
     
     class Meta:
-        verbose_name = 'Login'
-        verbose_name_plural = 'Login'
+        verbose_name = 'Usuário de Login'
+        verbose_name_plural = 'Usuários de Login'
 
 class Generos(models.Model):
     genero = models.CharField(max_length=200)
@@ -28,13 +28,14 @@ class Generos(models.Model):
 class UsersAccount(models.Model):
     usuario = models.CharField(max_length=200)
     image = models.ImageField(upload_to="static/imgUser")
+    login_user = models.ForeignKey(LoginUsers, related_name='accounts', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.usuario
     
     class Meta:
-        verbose_name = 'Usuario'
-        verbose_name_plural = 'Usuarios'
+        verbose_name = 'Usuário'
+        verbose_name_plural = 'Usuários'
 
 
 class Filmes(models.Model):

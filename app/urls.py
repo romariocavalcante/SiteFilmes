@@ -9,7 +9,8 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
 
     path("", views.login, name="login"),
-    path("home/", views.accountUser, name="home"),
+    path("conta/de/<str:id>/user/<str:username>/", views.home, name="home"),
     path("conta/de/<str:id>/", views.whois, name="whois"),
-    # path("conta/de/<str:id>/usuario/<str:id>", views.user, name="user"),
+    path('conta/de/<str:id>/createUser/', views.create_user, name='create_user'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{%block style%} 
+    <link rel="stylesheet" href="{% static 'css/create_user.css' %}">
+{%endblock%}
+{% block content %}
+    <main>
+       <h1>CREATE USER FUNCIONANDO</h1>
+       <a href="{% url 'whois' id=user.usuario %}">Voltar ao início</a>
+    </main>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/create_user.js' %}"></script>
+{% endblock %}

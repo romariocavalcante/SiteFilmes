@@ -4,38 +4,45 @@ from django.db import models
 # Login de Usuário
 class LoginUsers(models.Model):
     usuario = models.CharField(max_length=200)
+    email = models.EmailField(max_length=200, unique=True, null=True, blank=True)
     senha = models.CharField(max_length=200)
+    data_criacao = models.DateTimeField(auto_now_add=True, verbose_name="Data de Criação")
+    ultimo_acesso = models.DateTimeField(auto_now=True, verbose_name="Último Acesso")
 
     def __str__(self):
         return self.usuario
-    
+
     class Meta:
-        verbose_name = 'Usuário de Login'
-        verbose_name_plural = 'Usuários de Login'
+        verbose_name = "Usuário de Login"
+        verbose_name_plural = "Usuários de Login"
+
 
 class Generos(models.Model):
     genero = models.CharField(max_length=200)
 
     def __str__(self):
         return self.genero
-    
+
     class Meta:
-        verbose_name = 'Genero'
-        verbose_name_plural = 'Generos'
+        verbose_name = "Genero"
+        verbose_name_plural = "Generos"
 
 
 # Lista de usuarios dentro da conta de um usuário
 class UsersAccount(models.Model):
     usuario = models.CharField(max_length=200)
     image = models.ImageField(upload_to="static/imgUser")
-    login_user = models.ForeignKey(LoginUsers, related_name='accounts', on_delete=models.CASCADE)
+    login_user = models.ForeignKey(
+        LoginUsers, related_name="LoginUsers", on_delete=models.CASCADE
+    )
+    data_criacao = models.DateTimeField(auto_now_add=True, verbose_name="Data de Criação")
 
     def __str__(self):
         return self.usuario
-    
+
     class Meta:
-        verbose_name = 'Usuário'
-        verbose_name_plural = 'Usuários'
+        verbose_name = "Usuário"
+        verbose_name_plural = "Usuários"
 
 
 class Filmes(models.Model):
@@ -46,22 +53,31 @@ class Filmes(models.Model):
     genero = models.ManyToManyField(Generos, verbose_name="Gêneros")
     diretor = models.CharField(max_length=255, verbose_name="Diretor")
     elenco = models.TextField(verbose_name="Elenco")
-    classificacao = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True, verbose_name="Classificação")
-    imagem = models.ImageField(upload_to='movie_posters/', null=True, blank=True, verbose_name="Imagem")
+    classificacao = models.DecimalField(
+        max_digits=3,
+        decimal_places=1,
+        null=True,
+        blank=True,
+        verbose_name="Classificação",
+    )
+    imagem = models.ImageField(
+        upload_to="movie_posters/", null=True, blank=True, verbose_name="Imagem"
+    )
     linguagem = models.CharField(max_length=100, verbose_name="Idioma Principal")
     pais_de_origem = models.CharField(max_length=100, verbose_name="País de Origem")
 
-
     def __str__(self):
         return self.titulo
-    
+
     class Meta:
-        verbose_name = 'Filme'
-        verbose_name_plural = 'Filmes'
+        verbose_name = "Filme"
+        verbose_name_plural = "Filmes"
 
     def lista_generos(self):
         return ", ".join(genero.genero for genero in self.genero.all())
-    lista_generos.short_description = 'Gêneros'
+
+    lista_generos.short_description = "Gêneros"
+
 
 class Series(models.Model):
     titulo = models.CharField(max_length=255, verbose_name="Título")
@@ -72,18 +88,27 @@ class Series(models.Model):
     genero = models.ManyToManyField(Generos, verbose_name="Gêneros")
     diretor = models.CharField(max_length=255, verbose_name="Diretor")
     elenco = models.TextField(verbose_name="Elenco")
-    classificacao = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True, verbose_name="Classificação")
-    imagem = models.ImageField(upload_to='series_posters/', null=True, blank=True, verbose_name="Imagem")
+    classificacao = models.DecimalField(
+        max_digits=3,
+        decimal_places=1,
+        null=True,
+        blank=True,
+        verbose_name="Classificação",
+    )
+    imagem = models.ImageField(
+        upload_to="series_posters/", null=True, blank=True, verbose_name="Imagem"
+    )
     linguagem = models.CharField(max_length=100, verbose_name="Idioma Principal")
     pais_de_origem = models.CharField(max_length=100, verbose_name="País de Origem")
 
     def __str__(self):
         return self.titulo
-    
+
     class Meta:
-        verbose_name = 'Serie'
-        verbose_name_plural = 'Series'
+        verbose_name = "Serie"
+        verbose_name_plural = "Series"
 
     def lista_generos(self):
         return ", ".join(genero.genero for genero in self.genero.all())
-    lista_generos.short_description = 'Gêneros'
+
+    lista_generos.short_description = "Gêneros"

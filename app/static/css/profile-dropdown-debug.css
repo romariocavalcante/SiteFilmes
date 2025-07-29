@@ -1,0 +1,40 @@
+/* Profile Dropdown Debug CSS */
+
+/* Forçar visibilidade do dropdown para teste */
+.profile-dropdown {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: all !important;
+    border: 3px solid #ff0000 !important;
+    background: rgba(255, 0, 0, 0.2) !important;
+}
+
+/* Destacar o botão do perfil */
+.user-profile {
+    border: 2px solid #00ff00 !important;
+    background: rgba(0, 255, 0, 0.1) !important;
+}
+
+/* Mostrar que o dropdown está sendo renderizado */
+.profile-dropdown::after {
+    content: "DROPDOWN VISIBLE" !important;
+    position: absolute !important;
+    top: -30px !important;
+    right: 0 !important;
+    background: #ff0000 !important;
+    color: white !important;
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    z-index: 9999 !important;
+}
+
+/* Garantir que o z-index está correto */
+.navbar .nav-right .user-profile {
+    z-index: 1001 !important;
+}
+
+.navbar .nav-right .user-profile .profile-dropdown {
+    z-index: 1002 !important;
+} 

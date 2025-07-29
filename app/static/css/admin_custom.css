@@ -1,0 +1,577 @@
+/* ==================== TEMA MINIMALISTA - MOVIEFLIX ADMIN ==================== */
+
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #2d2d2d;
+    --accent-color: #404040;
+    --highlight-color: #666666;
+    --text-light: #ffffff;
+    --text-muted: #b0b0b0;
+    --text-dark: #333333;
+    --success-color: #4a4a4a;
+    --warning-color: #5a5a5a;
+    --danger-color: #6a6a6a;
+    --border-color: #3a3a3a;
+    --card-bg: #252525;
+    --sidebar-bg: #1f1f1f;
+    --gradient-primary: linear-gradient(135deg, #2d2d2d 0%, #404040 100%);
+    --gradient-secondary: linear-gradient(135deg, #404040 0%, #555555 100%);
+    --gradient-accent: linear-gradient(135deg, #555555 0%, #666666 100%);
+    --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== HEADER MINIMALISTA ==================== */
+#header {
+    background: var(--primary-color);
+    color: var(--text-light);
+    box-shadow: var(--shadow-medium);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+#header h1 {
+    color: var(--text-light);
+    font-weight: 400;
+    text-shadow: none;
+    font-size: 1.6rem;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.5px;
+}
+
+#header h1::before {
+    content: '🎬';
+    margin-right: 12px;
+    font-size: 1.8rem;
+    opacity: 0.8;
+}
+
+/* ==================== SIDEBAR MINIMALISTA ==================== */
+#nav-sidebar {
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    box-shadow: var(--shadow-medium);
+}
+
+#nav-sidebar .module h2 {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    padding: 12px 16px;
+    margin: 0;
+    font-weight: 400;
+    border-radius: 0;
+    text-shadow: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+#nav-sidebar .module {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#nav-sidebar .module:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-medium);
+}
+
+#nav-sidebar a {
+    color: var(--text-muted);
+    padding: 10px 16px;
+    display: block;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
+    font-size: 0.9rem;
+}
+
+#nav-sidebar a:hover {
+    background: var(--accent-color);
+    color: var(--text-light);
+    border-left-color: var(--highlight-color);
+    transform: translateX(2px);
+}
+
+#nav-sidebar a:focus {
+    background: var(--accent-color);
+    color: var(--text-light);
+    outline: none;
+}
+
+/* ==================== CONTEÚDO PRINCIPAL ==================== */
+#content {
+    background: var(--primary-color);
+    color: var(--text-light);
+    min-height: 100vh;
+}
+
+.main {
+    background: var(--secondary-color);
+    border-radius: 8px;
+    margin: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-heavy);
+    border: 1px solid var(--border-color);
+}
+
+/* ==================== TABELAS MINIMALISTAS ==================== */
+.results {
+    background: var(--card-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+}
+
+.results thead th {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    font-weight: 500;
+    padding: 12px 10px;
+    border: none;
+    text-shadow: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.results tbody tr {
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.results tbody tr:hover {
+    background: var(--accent-color);
+    transform: none;
+}
+
+.results tbody td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* ==================== BOTÕES MINIMALISTAS ==================== */
+.button, input[type=submit], input[type=button], .submit-row input {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-light);
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover {
+    background: var(--gradient-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-medium);
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    background: var(--gradient-accent);
+    font-size: 0.95rem;
+    padding: 10px 20px;
+}
+
+.button.default:hover, input[type=submit].default:hover, .submit-row input.default:hover {
+    background: var(--gradient-secondary);
+}
+
+/* ==================== LINKS MINIMALISTAS ==================== */
+a:link, a:visited {
+    color: var(--highlight-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+/* ==================== FORMULÁRIOS MINIMALISTAS ==================== */
+.form-row {
+    background: var(--card-bg);
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+}
+
+.form-row label {
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.form-row input, .form-row textarea, .form-row select {
+    background: var(--primary-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    padding: 8px 12px;
+    border-radius: 4px;
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.form-row input:focus, .form-row textarea:focus, .form-row select:focus {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 0 2px rgba(102, 102, 102, 0.1);
+    outline: none;
+}
+
+/* ==================== MENSAGENS MINIMALISTAS ==================== */
+.messagelist {
+    margin: 16px;
+}
+
+.messagelist li {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    box-shadow: var(--shadow-medium);
+    border-left: 3px solid var(--highlight-color);
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.messagelist li.success {
+    background: var(--gradient-primary);
+    border-left-color: var(--success-color);
+}
+
+.messagelist li.error {
+    background: var(--gradient-primary);
+    border-left-color: var(--danger-color);
+}
+
+.messagelist li.warning {
+    background: var(--gradient-primary);
+    border-left-color: var(--warning-color);
+}
+
+/* ==================== FILTROS MINIMALISTAS ==================== */
+#changelist-filter {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: var(--shadow-medium);
+}
+
+#changelist-filter h2 {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    padding: 12px 16px;
+    margin: 0;
+    border-radius: 4px 4px 0 0;
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+#changelist-filter li {
+    border-bottom: 1px solid var(--border-color);
+}
+
+#changelist-filter a {
+    color: var(--text-muted);
+    padding: 10px 16px;
+    display: block;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+}
+
+#changelist-filter a:hover {
+    background: var(--accent-color);
+    color: var(--text-light);
+}
+
+#changelist-filter a.selected {
+    background: var(--highlight-color);
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* ==================== PAGINAÇÃO MINIMALISTA ==================== */
+.paginator {
+    background: var(--card-bg);
+    padding: 16px;
+    border-radius: 4px;
+    margin-top: 16px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+.paginator a:link, .paginator a:visited {
+    background: var(--accent-color);
+    color: var(--text-light);
+    padding: 6px 10px;
+    border-radius: 3px;
+    margin: 0 1px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+}
+
+.paginator a:hover {
+    background: var(--highlight-color);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-light);
+}
+
+.paginator .this-page {
+    background: var(--highlight-color);
+    color: var(--text-light);
+    padding: 6px 10px;
+    border-radius: 3px;
+    margin: 0 1px;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+/* ==================== BREADCRUMBS MINIMALISTAS ==================== */
+.breadcrumbs {
+    background: var(--card-bg);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+.breadcrumbs a {
+    color: var(--highlight-color);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+.breadcrumbs a:hover {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+/* ==================== ESTATÍSTICAS MINIMALISTAS ==================== */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--highlight-color);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.stat-card h3 {
+    color: var(--text-light);
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0 0 8px 0;
+    text-shadow: none;
+}
+
+.stat-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.3px;
+}
+
+.stat-card.filmes::before { background: var(--highlight-color); }
+.stat-card.series::before { background: var(--highlight-color); }
+.stat-card.usuarios::before { background: var(--highlight-color); }
+.stat-card.generos::before { background: var(--highlight-color); }
+
+/* ==================== CONTEÚDO RECENTE MINIMALISTA ==================== */
+.recent-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 24px;
+    box-shadow: var(--shadow-medium);
+}
+
+.recent-content h2 {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 400;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .main {
+        margin: 8px;
+        padding: 16px;
+    }
+    
+    #header h1 {
+        font-size: 1.3rem;
+    }
+    
+    .stat-card h3 {
+        font-size: 1.6rem;
+    }
+}
+
+/* ==================== ANIMAÇÕES SUAVES ==================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.results tbody tr {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.results tbody tr:nth-child(1) { animation-delay: 0.05s; }
+.results tbody tr:nth-child(2) { animation-delay: 0.1s; }
+.results tbody tr:nth-child(3) { animation-delay: 0.15s; }
+.results tbody tr:nth-child(4) { animation-delay: 0.2s; }
+.results tbody tr:nth-child(5) { animation-delay: 0.25s; }
+
+/* ==================== SCROLLBAR MINIMALISTA ==================== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--highlight-color);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* ==================== ESTADOS ESPECIAIS ==================== */
+.object-tools {
+    margin-bottom: 16px;
+}
+
+.object-tools a {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-light);
+    font-size: 0.85rem;
+}
+
+.object-tools a:hover {
+    background: var(--gradient-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-medium);
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+/* ==================== MELHORIAS PARA IMAGENS ==================== */
+.field-imagem_preview img {
+    border-radius: 4px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.2s ease;
+}
+
+.field-imagem_preview img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-medium);
+}
+
+/* ==================== CLASSIFICAÇÕES DISCRETAS ==================== */
+.field-classificacao_formatada span {
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 400;
+    text-shadow: none;
+    background: var(--accent-color);
+    color: var(--text-light);
+}
+
+/* ==================== ESTADOS DE CARREGAMENTO ==================== */
+.loading {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    padding: 16px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+} 

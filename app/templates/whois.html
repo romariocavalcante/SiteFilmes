@@ -1,40 +1,37 @@
 {% extends "base.html" %}
 {% load static %}
 <!-- Title -->
-{% block title %}Escolha do Usuário{% endblock %}
+{% block title %}Escolha do Usuário - Netflix Style{% endblock %}
 {%block style%} 
-    <link rel="stylesheet" href="{% static 'css/whois.css' %}">
+    <link rel="stylesheet" href="{% static 'css/whois/whois.css' %}">
 {%endblock%}
 {% block content %}
     <main>
+        <!-- Netflix Style Header -->
+        <div class="netflix-header">
+            <h1>Quem está assistindo?</h1>
+            <p>Escolha seu perfil para continuar</p>
+        </div>
+        
         <nav>
-            <label for="username">Conta de</label>
-            <h3 id="username">
-                <img src="" alt="">
-                {{login_user}}
-            </h3>
+            {% for user in usuarios %}
+            <a href="{% url 'home' user.usuario %}">
+                <div class="user">
+                    <img src="{{user.image.url}}" alt="{{user.usuario}}">
+                    <h3>{{user.usuario}}</h3>
+                </div>
+            </a>
+            {% endfor %}
+            
+            <!-- Botão Adicionar -->
+            <a href="{% url 'create_user' %}" class="add-user-btn">
+                <div class="user add-user">
+                    <div class="add-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <h3>Adicionar</h3>
+                </div>
+            </a>
         </nav>
-        <section>
-            <div class="content">
-                <div class="users">
-                    {% for user in usuarios %}
-                        <a href="">
-                            <div class="user">
-                                <img src="{{ user.image.url }}" alt="{{ user.usuario }}">
-                                <div class="nome">
-                                    {{user.usuario}}
-                                </div>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-                <div class="addUser">
-                    <a href="">
-                        <i class="fa-solid fa-plus"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
-
 {% endblock %}

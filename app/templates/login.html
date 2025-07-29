@@ -1,30 +1,131 @@
 {% extends "base.html" %}
 {% load static %}
 {%block style%} 
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 {%endblock%}
 {% block content %}
     <main>
         <div class="overlay">
             <div class="login-container">
-                <h1>Login</h1>
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                    {% if messages %}
+                <div class="logo-section">
+                    <div class="logo">
+                        <i class="fas fa-film"></i>
+                        <span>MovieFlix</span>
+                    </div>
+                    <p class="tagline">Sua plataforma de entretenimento</p>
+                </div>
+                
+                <!-- Container principal com duas colunas -->
+                <div class="auth-container">
+                    <!-- Coluna de Login -->
+                    <div class="auth-column login-column">
+                        <div class="auth-header">
+                            <h2>Entrar</h2>
+                            <p>Continue assistindo onde parou</p>
+                        </div>
+                        
+                        <form action="" method="post" class="login-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="username" name="username" placeholder="Nome de usuário" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="password" name="password" placeholder="Senha" required>
+                                </div>
+                            </div>
+                            
+                            <button type="submit">
+                                <span>Entrar</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                        
+                        <div class="footer-links">
+                            <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Separador vertical -->
+                    <div class="auth-separator">
+                        <div class="separator-line"></div>
+                        <div class="separator-text">ou</div>
+                        <div class="separator-line"></div>
+                    </div>
+                    
+                    <!-- Coluna de Cadastro -->
+                    <div class="auth-column register-column">
+                        <div class="auth-header">
+                            <h2>Criar Conta</h2>
+                            <p>Junte-se à nossa comunidade</p>
+                        </div>
+                        
+                        <form action="" method="post" class="register-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="reg-username" name="reg_username" placeholder="Nome de usuário" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="reg-email" name="reg_email" placeholder="E-mail" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="reg-password" name="reg_password" placeholder="Senha" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="reg-confirm-password" name="reg_confirm_password" placeholder="Confirmar senha" required>
+                                </div>
+                            </div>
+                            
+                            <div class="terms-checkbox">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-text">Concordo com os <a href="{% url 'termos_uso' %}" class="terms-link" target="_blank">Termos de Uso</a> e <a href="{% url 'politica_privacidade' %}" class="terms-link" target="_blank">Política de Privacidade</a></span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit">
+                                <span>Criar conta</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Mensagens de erro e sucesso -->
+                {% if messages %}
+                    <div class="messages-container">
                         {% for message in messages %}
-                            <div class="message">{{ message }}</div>
+                            <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                                <i class="fas {% if message.tags == 'success' %}fa-check-circle{% else %}fa-exclamation-triangle{% endif %}"></i>
+                                {{ message }}
+                            </div>
                         {% endfor %}
-                    {% endif %}
-                    <button type="submit">Login</button>
-                </form>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </main>
-
 {% endblock %}
 
 {% block script %}

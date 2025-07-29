@@ -1,0 +1,237 @@
+[
+    {
+        "model": "app.generos",
+        "pk": 1,
+        "fields": {
+            "genero": "Ação"
+        }
+    },
+    {
+        "model": "app.generos",
+        "pk": 2,
+        "fields": {
+            "genero": "Aventura"
+        }
+    },
+    {
+        "model": "app.generos",
+        "pk": 3,
+        "fields": {
+            "genero": "Comédia"
+        }
+    },
+    {
+        "model": "app.generos",
+        "pk": 4,
+        "fields": {
+            "genero": "Drama"
+        }
+    },
+    {
+        "model": "app.generos",
+        "pk": 5,
+        "fields": {
+            "genero": "Ficção Científica"
+        }
+    },
+    {
+        "model": "app.generos",
+        "pk": 6,
+        "fields": {
+            "genero": "Terror"
+        }
+    },
+    {
+        "model": "app.generos",
+        "pk": 7,
+        "fields": {
+            "genero": "Romance"
+        }
+    },
+    {
+        "model": "app.generos",
+        "pk": 8,
+        "fields": {
+            "genero": "Suspense"
+        }
+    },
+    {
+        "model": "app.generos",
+        "pk": 9,
+        "fields": {
+            "genero": "Fantasia"
+        }
+    },
+    {
+        "model": "app.generos",
+        "pk": 10,
+        "fields": {
+            "genero": "Crime"
+        }
+    },
+    {
+        "model": "app.filmes",
+        "pk": 1,
+        "fields": {
+            "titulo": "O Poderoso Chefão",
+            "descricao": "Uma família mafiosa italiana luta para estabelecer sua supremacia nos Estados Unidos após a Segunda Guerra Mundial.",
+            "data_lancamento": "1972-03-24",
+            "duracao": 175,
+            "genero": [10, 4],
+            "diretor": "Francis Ford Coppola",
+            "elenco": "Marlon Brando, Al Pacino, James Caan, Robert Duvall",
+            "classificacao": "9.2",
+            "linguagem": "Inglês",
+            "pais_de_origem": "Estados Unidos"
+        }
+    },
+    {
+        "model": "app.filmes",
+        "pk": 2,
+        "fields": {
+            "titulo": "Interestelar",
+            "descricao": "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
+            "data_lancamento": "2014-11-07",
+            "duracao": 169,
+            "genero": [5, 4, 1],
+            "diretor": "Christopher Nolan",
+            "elenco": "Matthew McConaughey, Anne Hathaway, Jessica Chastain, Mackenzie Foy",
+            "classificacao": "8.6",
+            "linguagem": "Inglês",
+            "pais_de_origem": "Estados Unidos"
+        }
+    },
+    {
+        "model": "app.filmes",
+        "pk": 3,
+        "fields": {
+            "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+            "descricao": "Um hobbit recebe a missão de destruir um anel poderoso que pode destruir o mundo se cair nas mãos erradas.",
+            "data_lancamento": "2001-12-19",
+            "duracao": 178,
+            "genero": [9, 2, 4],
+            "diretor": "Peter Jackson",
+            "elenco": "Elijah Wood, Ian McKellen, Viggo Mortensen, Sean Astin",
+            "classificacao": "8.8",
+            "linguagem": "Inglês",
+            "pais_de_origem": "Nova Zelândia"
+        }
+    },
+    {
+        "model": "app.filmes",
+        "pk": 4,
+        "fields": {
+            "titulo": "Pulp Fiction",
+            "descricao": "Várias histórias interligadas de criminosos em Los Angeles, contadas de forma não linear.",
+            "data_lancamento": "1994-10-14",
+            "duracao": 154,
+            "genero": [10, 3, 8],
+            "diretor": "Quentin Tarantino",
+            "elenco": "John Travolta, Samuel L. Jackson, Uma Thurman, Bruce Willis",
+            "classificacao": "8.9",
+            "linguagem": "Inglês",
+            "pais_de_origem": "Estados Unidos"
+        }
+    },
+    {
+        "model": "app.filmes",
+        "pk": 5,
+        "fields": {
+            "titulo": "Parasita",
+            "descricao": "Uma família pobre coreana se infiltra na casa de uma família rica, causando consequências inesperadas.",
+            "data_lancamento": "2019-05-30",
+            "duracao": 132,
+            "genero": [4, 8, 3],
+            "diretor": "Bong Joon-ho",
+            "elenco": "Song Kang-ho, Lee Sun-kyun, Cho Yeo-jeong, Choi Woo-shik",
+            "classificacao": "8.5",
+            "linguagem": "Coreano",
+            "pais_de_origem": "Coreia do Sul"
+        }
+    },
+    {
+        "model": "app.series",
+        "pk": 1,
+        "fields": {
+            "titulo": "Breaking Bad",
+            "descricao": "Um professor de química do ensino médio se transforma em fabricante de metanfetamina para garantir o futuro financeiro de sua família.",
+            "data_lancamento": "2008-01-20",
+            "n_temporadas": 5,
+            "n_episodios": 62,
+            "genero": [10, 4, 8],
+            "diretor": "Vince Gilligan",
+            "elenco": "Bryan Cranston, Aaron Paul, Anna Gunn, RJ Mitte",
+            "classificacao": "9.5",
+            "linguagem": "Inglês",
+            "pais_de_origem": "Estados Unidos"
+        }
+    },
+    {
+        "model": "app.series",
+        "pk": 2,
+        "fields": {
+            "titulo": "Stranger Things",
+            "descricao": "Um grupo de crianças descobre fenômenos sobrenaturais e uma menina com poderes especiais em uma pequena cidade.",
+            "data_lancamento": "2016-07-15",
+            "n_temporadas": 4,
+            "n_episodios": 34,
+            "genero": [6, 5, 4],
+            "diretor": "The Duffer Brothers",
+            "elenco": "Millie Bobby Brown, Finn Wolfhard, Noah Schnapp, Winona Ryder",
+            "classificacao": "8.7",
+            "linguagem": "Inglês",
+            "pais_de_origem": "Estados Unidos"
+        }
+    },
+    {
+        "model": "app.series",
+        "pk": 3,
+        "fields": {
+            "titulo": "The Crown",
+            "descricao": "A história da rainha Elizabeth II e dos eventos que moldaram a segunda metade do século XX.",
+            "data_lancamento": "2016-11-04",
+            "n_temporadas": 6,
+            "n_episodios": 60,
+            "genero": [4, 7],
+            "diretor": "Peter Morgan",
+            "elenco": "Olivia Colman, Helena Bonham Carter, Josh O'Connor, Emma Corrin",
+            "classificacao": "8.7",
+            "linguagem": "Inglês",
+            "pais_de_origem": "Reino Unido"
+        }
+    },
+    {
+        "model": "app.series",
+        "pk": 4,
+        "fields": {
+            "titulo": "The Mandalorian",
+            "descricao": "Um caçador de recompensas solitário navega pelos territórios mais perigosos da galáxia em busca de seu próximo alvo.",
+            "data_lancamento": "2019-11-12",
+            "n_temporadas": 3,
+            "n_episodios": 24,
+            "genero": [5, 1, 2],
+            "diretor": "Jon Favreau",
+            "elenco": "Pedro Pascal, Gina Carano, Carl Weathers, Giancarlo Esposito",
+            "classificacao": "8.8",
+            "linguagem": "Inglês",
+            "pais_de_origem": "Estados Unidos"
+        }
+    },
+    {
+        "model": "app.series",
+        "pk": 5,
+        "fields": {
+            "titulo": "Money Heist",
+            "descricao": "Oito ladrões fazem reféns e se trancam na Casa da Moeda Real da Espanha enquanto um gênio criminoso manipula a polícia.",
+            "data_lancamento": "2017-05-02",
+            "n_temporadas": 5,
+            "n_episodios": 41,
+            "genero": [1, 8, 10],
+            "diretor": "Álex Pina",
+            "elenco": "Úrsula Corberó, Álvaro Morte, Itziar Ituño, Pedro Alonso",
+            "classificacao": "8.2",
+            "linguagem": "Espanhol",
+            "pais_de_origem": "Espanha"
+        }
+    }
+] 

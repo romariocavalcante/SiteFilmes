@@ -5,14 +5,335 @@
 {% block title %}Filmes&Series{% endblock %}
 <!-- Style -->
 {%block style%} 
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
 {%endblock%}
 <!-- Content -->
 {% block content %}
     <main>
-        <section>
-            <h1>VOCÊ ESTÁ NA HOME DE USUÁRIO</h1>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-film"></i>
+                    <span>MovieFlix</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item active">
+                        <a href="{% url 'home' username=username %}" class="nav-link">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'filme' %}" class="nav-link">Filmes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'serie' %}" class="nav-link">Séries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Minha Lista</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar filmes e séries...">
+                </div>
+                <div class="user-profile" id="userProfile">
+                    {% if usuario.image %}
+                        <img src="{{ usuario.image.url }}" alt="Perfil" class="profile-img">
+                    {% else %}
+                        <img src="{% static 'imgUser/user01.png' %}" alt="Perfil" class="profile-img">
+                    {% endif %}
+                    <i class="fas fa-chevron-down"></i>
+                    
+                    <!-- Dropdown do Perfil -->
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-header">
+                            {% if usuario.image %}
+                                <img src="{{ usuario.image.url }}" alt="Perfil" class="dropdown-profile-img">
+                            {% else %}
+                                <img src="{% static 'imgUser/user01.png' %}" alt="Perfil" class="dropdown-profile-img">
+                            {% endif %}
+                            <div class="dropdown-user-info">
+                                <h4>{{ username }}</h4>
+                                <p>Usuário</p>
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                <span>Gerenciar Perfis</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Configurações</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Central de Ajuda</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{% url 'whois' %}" class="dropdown-item">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Trocar Perfil</span>
+                            </a>
+                            <a href="{% url 'logout' %}" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Sair</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Vingadores: Ultimato</h1>
+                <p class="hero-description">
+                    Após os eventos devastadores de "Vingadores: Guerra Infinita", o universo está em ruínas. 
+                    Com a ajuda dos aliados restantes, os Vingadores se reúnem mais uma vez para reverter as 
+                    ações de Thanos e restaurar o equilíbrio do universo.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-play">
+                        <i class="fas fa-play"></i>
+                        Reproduzir
+                    </button>
+                    <button class="btn btn-info">
+                        <i class="fas fa-info-circle"></i>
+                        Mais Informações
+                    </button>
+                </div>
+            </div>
         </section>
-        <h1>HOME</h1>
+
+        <!-- Content Sections -->
+        <section class="content-sections">
+            <!-- Trending Now -->
+            <div class="content-row">
+                <h2 class="section-title">Em Alta</h2>
+                <div class="content-slider">
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme 1" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Interestelar</h3>
+                                <p>Ficção Científica • 2h 49min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme 2" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>O Poderoso Chefão</h3>
+                                <p>Drama • 2h 55min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1512070679279-8988d32161be?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme 3" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Pulp Fiction</h3>
+                                <p>Crime • 2h 34min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme 4" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Forrest Gump</h3>
+                                <p>Drama • 2h 22min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme 5" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Matrix</h3>
+                                <p>Ação • 2h 16min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Movies -->
+            <div class="content-row">
+                <h2 class="section-title">Filmes Populares</h2>
+                <div class="content-slider">
+                    {% for filme in filmes %}
+                    <div class="content-card">
+                        {% if filme.imagem %}
+                            <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}" class="card-image">
+                        {% else %}
+                            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="{{ filme.titulo }}" class="card-image">
+                        {% endif %}
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>{{ filme.titulo }}</h3>
+                                <p>{{ filme.lista_generos }} • {{ filme.duracao }}min</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Interestelar</h3>
+                                <p>Ficção Científica • 2h 49min</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Popular Series -->
+            <div class="content-row">
+                <h2 class="section-title">Séries Populares</h2>
+                <div class="content-slider">
+                    {% for serie in series %}
+                    <div class="content-card">
+                        {% if serie.imagem %}
+                            <img src="{{ serie.imagem.url }}" alt="{{ serie.titulo }}" class="card-image">
+                        {% else %}
+                            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="{{ serie.titulo }}" class="card-image">
+                        {% endif %}
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>{{ serie.titulo }}</h3>
+                                <p>{{ serie.lista_generos }} • {{ serie.n_temporadas }} Temporadas</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Série" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Breaking Bad</h3>
+                                <p>Drama • 5 Temporadas</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Continue Watching -->
+            <div class="content-row">
+                <h2 class="section-title">Continuar Assistindo</h2>
+                <div class="content-slider">
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Continuar 1" class="card-image">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Dark</h3>
+                                <p>Série • Episódio 5</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1512070679279-8988d32161be?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Continuar 2" class="card-image">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 45%"></div>
+                        </div>
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>La Casa de Papel</h3>
+                                <p>Série • Episódio 3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Continuar 3" class="card-image">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Money Heist</h3>
+                                <p>Série • Episódio 8</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+{% endblock %}
+
+<!-- Scripts -->
+{% block script %}
+<script src="{% static 'js/home.js' %}"></script>
 {% endblock %}

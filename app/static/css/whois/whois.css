@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, rgba(229, 9, 20, 0.1) 0%, transparent 70%);
+  position: relative;
+}
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+  z-index: 1;
+}
+main nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+main nav a {
+  text-decoration: none;
+  width: 180px;
+  height: 180px;
+  perspective: 1000px;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+main nav a:nth-child(1) {
+  animation-delay: 0.1s;
+}
+main nav a:nth-child(2) {
+  animation-delay: 0.2s;
+}
+main nav a:nth-child(3) {
+  animation-delay: 0.3s;
+}
+main nav a:nth-child(4) {
+  animation-delay: 0.4s;
+}
+main nav a:nth-child(5) {
+  animation-delay: 0.5s;
+}
+main nav a:nth-child(6) {
+  animation-delay: 0.6s;
+}
+main nav a .user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  height: 100%;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+main nav a .user::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(229, 9, 20, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+main nav a .user:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: #e50914;
+  box-shadow: 0 20px 40px rgba(229, 9, 20, 0.3);
+  background: linear-gradient(145deg, rgba(229, 9, 20, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+main nav a .user:hover::before {
+  left: 100%;
+}
+main nav a .user:hover img {
+  border-color: #e50914;
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(229, 9, 20, 0.4);
+}
+main nav a .user:hover h3 {
+  color: #e50914;
+  font-weight: 600;
+  transform: scale(1.05);
+}
+main nav a .user:active {
+  transform: translateY(-5px) scale(1.02);
+}
+main nav a .user img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+}
+main nav a .user h3 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+main nav a.add-user-btn .user.add-user {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+main nav a.add-user-btn .user.add-user:hover {
+  border-color: #e50914;
+  border-style: solid;
+  background: linear-gradient(145deg, rgba(229, 9, 20, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+}
+main nav a.add-user-btn .add-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+main nav a.add-user-btn .add-icon i {
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+main nav a.add-user-btn:hover .add-icon {
+  border-color: #e50914;
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(229, 9, 20, 0.4);
+  background: linear-gradient(145deg, rgba(229, 9, 20, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+}
+main nav a.add-user-btn:hover .add-icon i {
+  color: #e50914;
+  transform: scale(1.2);
+}
+main nav a.add-user-btn:hover .user.add-user h3 {
+  color: #e50914;
+  font-weight: 600;
+}
+main nav a.add-user-btn .user.add-user h3 {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+.netflix-header {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+.netflix-header h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #e50914;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.netflix-header p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  main nav {
+    gap: 20px;
+    padding: 15px;
+  }
+  main nav a {
+    width: 140px;
+    height: 140px;
+  }
+  main nav a .user img {
+    width: 60px;
+    height: 60px;
+  }
+  main nav a .user h3 {
+    font-size: 14px;
+  }
+  main nav a.add-user-btn .add-icon {
+    width: 60px;
+    height: 60px;
+  }
+  main nav a.add-user-btn .add-icon i {
+    font-size: 24px;
+  }
+  .netflix-header h1 {
+    font-size: 2rem;
+  }
+  .netflix-header p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  main nav {
+    gap: 15px;
+    flex-direction: column;
+  }
+  main nav a {
+    width: 120px;
+    height: 120px;
+  }
+  main nav a .user img {
+    width: 50px;
+    height: 50px;
+  }
+  main nav a .user h3 {
+    font-size: 12px;
+  }
+  main nav a.add-user-btn .add-icon {
+    width: 50px;
+    height: 50px;
+  }
+  main nav a.add-user-btn .add-icon i {
+    font-size: 20px;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}/*# sourceMappingURL=whois.css.map */

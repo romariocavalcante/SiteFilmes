@@ -1,0 +1,342 @@
+{% extends "base.html" %}
+<!-- Static -->
+{% load static %}
+<!-- Title -->
+{% block title %}Filmes - MovieFlix{% endblock %}
+<!-- Style -->
+{%block style%} 
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+{%endblock%}
+<!-- Content -->
+{% block content %}
+    <main>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-film"></i>
+                    <span>MovieFlix</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="nav-link">Início</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{% url 'filme' %}" class="nav-link">Filmes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'serie' %}" class="nav-link">Séries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Minha Lista</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar filmes...">
+                </div>
+                <div class="user-profile">
+                    <img src="{% static 'imgUser/user01.png' %}" alt="Perfil" class="profile-img">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Descubra os Melhores Filmes</h1>
+                <p class="hero-description">
+                    Explore nossa vasta coleção de filmes de todos os gêneros. Desde blockbusters até filmes independentes, 
+                    temos algo para todos os gostos. Encontre seu próximo filme favorito aqui.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-play">
+                        <i class="fas fa-play"></i>
+                        Explorar
+                    </button>
+                    <button class="btn btn-info">
+                        <i class="fas fa-info-circle"></i>
+                        Mais Informações
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section class="content-sections">
+            <!-- Featured Movies -->
+            <div class="content-row">
+                <h2 class="section-title">Filmes em Destaque</h2>
+                <div class="content-slider">
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme 1" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Interestelar</h3>
+                                <p>Ficção Científica • 2h 49min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme 2" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>O Poderoso Chefão</h3>
+                                <p>Drama • 2h 55min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1512070679279-8988d32161be?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme 3" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Pulp Fiction</h3>
+                                <p>Crime • 2h 34min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme 4" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Forrest Gump</h3>
+                                <p>Drama • 2h 22min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme 5" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Matrix</h3>
+                                <p>Ação • 2h 16min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Movies -->
+            <div class="content-row">
+                <h2 class="section-title">Filmes Populares</h2>
+                <div class="content-slider">
+                    {% for filme in filmes %}
+                    <div class="content-card">
+                        {% if filme.imagem %}
+                            <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}" class="card-image">
+                        {% else %}
+                            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="{{ filme.titulo }}" class="card-image">
+                        {% endif %}
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>{{ filme.titulo }}</h3>
+                                <p>{{ filme.lista_generos }} • {{ filme.duracao }}min</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Filme" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Interestelar</h3>
+                                <p>Ficção Científica • 2h 49min</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Action Movies -->
+            <div class="content-row">
+                <h2 class="section-title">Filmes de Ação</h2>
+                <div class="content-slider">
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ação 1" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Mad Max: Fury Road</h3>
+                                <p>Ação • 2h 0min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ação 2" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>John Wick</h3>
+                                <p>Ação • 1h 41min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ação 3" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Mission: Impossible</h3>
+                                <p>Ação • 2h 30min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drama Movies -->
+            <div class="content-row">
+                <h2 class="section-title">Filmes de Drama</h2>
+                <div class="content-slider">
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Drama 1" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>O Silêncio dos Inocentes</h3>
+                                <p>Drama • 1h 58min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1512070679279-8988d32161be?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Drama 2" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>O Resgate do Soldado Ryan</h3>
+                                <p>Drama • 2h 49min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Drama 3" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Schindler's List</h3>
+                                <p>Drama • 3h 15min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comedy Movies -->
+            <div class="content-row">
+                <h2 class="section-title">Filmes de Comédia</h2>
+                <div class="content-slider">
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Comédia 1" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Superbad</h3>
+                                <p>Comédia • 1h 53min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1512070679279-8988d32161be?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Comédia 2" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>Bridesmaids</h3>
+                                <p>Comédia • 2h 5min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Comédia 3" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-buttons">
+                                <button class="btn-play-small"><i class="fas fa-play"></i></button>
+                                <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                <button class="btn-like"><i class="fas fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="card-info">
+                                <h3>The Hangover</h3>
+                                <p>Comédia • 1h 40min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+<!-- Scripts -->
+{% block script %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

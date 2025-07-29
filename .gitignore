@@ -4,3 +4,4 @@ migrations/*
 !migrations/__init__.py
 meusite\__pycache__
 db.sqlite3
+venv
